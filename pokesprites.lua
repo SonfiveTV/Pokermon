@@ -250,6 +250,14 @@ SMODS.Atlas({
     py = 95
 }):register()
 
+SMODS.Atlas({
+    key = "Pokermon",
+    path = "Pokermon.png",
+    px = 333,
+    py = 216
+}):register()
+
+
 --Custom sounds
 SMODS.Sound({
     key = "e_shiny",

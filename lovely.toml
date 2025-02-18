@@ -324,31 +324,69 @@ end
 '''
 match_indent = true
 
-
-
-# Card Effect Divider
+# Custom Spash Logo 
 [[patches]]
 [patches.pattern]
-target = 'functions/misc_functions.lua'
-pattern = "elseif part.control.X then"
-position = "before"
+target = 'game.lua'
+pattern = '''
+    G.SPLASH_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
+        G.ASSET_ATLAS["balatro"], {x=0,y=0})
+
+    G.SPLASH_LOGO:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=0,y=0}
+    })
+'''
+position = "at"
 payload = '''
-elseif part.control.br then
-  local height = 0.05
-  local gaps = 0.2
-  local mid = 0.15
-  local sides = (tonumber(part.control.br) - gaps*2 - mid) / 2
-  -- spacing
-  args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minh = height}, nodes={}}}
-  if sides < gaps then
-    args.nodes[#args.nodes+1] = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = tonumber(part.control.br), minh = height}}}
-  else
-    local temp_nodes = {{n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}},
-                        {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
-                        {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TEXT_INACTIVE, minw = mid, minh = height}, nodes={}},
-                        {n=G.UIT.C, config={align = "cm", minw = gaps}, nodes={}},
-                        {n=G.UIT.C, config={align = "cm", colour = G.C.UI.TRANSPARENT_DARK, minw = sides, minh = height}, nodes={}}}
-    args.nodes[#args.nodes+1] = {{n=G.UIT.R, config={align = "cm", minw = tonumber(part.control.br)}, nodes=temp_nodes}}
-  end
+    G.SPLASH_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
+        G.ASSET_ATLAS["balatro"], {x=0,y=0})
+
+    G.SPLASH_LOGO:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=2.5,y=3}
+    })
+'''
+match_indent = true
+
+# Hide Splash Card
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    self.title_top:emplace(replace_card)
+'''
+position = "at"
+payload = '''
+    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 0*G.CARD_W*SC_scale, 0*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    self.title_top:emplace(replace_card)
+'''
+match_indent = true
+
+# Replace Splash Logo
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+    G.SPLASH_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["balatro"].py/G.ASSET_ATLAS["balatro"].px),
+        G.ASSET_ATLAS["balatro"], {x=0,y=0})
+'''
+position = "at"
+payload = '''
+    G.SPLASH_LOGO = Sprite(0, 0, 
+        18*SC_scale, 
+        18*SC_scale*(G.ASSET_ATLAS["poke_Pokermon"].py/G.ASSET_ATLAS["poke_Pokermon"].px),
+        G.ASSET_ATLAS["poke_Pokermon"], {x=0,y=0})
 '''
 match_indent = true
