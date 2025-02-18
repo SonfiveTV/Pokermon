@@ -383,12 +383,12 @@ payload = '''
         major = G.title_top,
         type = 'cm',
         bond = 'Strong',
-        offset = {x=2.5,y=3}
+        offset = {x=-0.35,y=0}
     })
 '''
 match_indent = true
 
-# Hide Splash Card
+# Change Splash Card
 [[patches]]
 [patches.pattern]
 target = 'game.lua'
@@ -398,8 +398,9 @@ pattern = '''
 '''
 position = "at"
 payload = '''
-    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 0*G.CARD_W*SC_scale, 0*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.c_base)
+    local replace_card = Card(self.title_top.T.x, self.title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CENTERS.j_poke_mega_gengar, G.P_CENTERS.j_poke_mega_gengar)
     self.title_top:emplace(replace_card)
+    replace_card:set_edition({poke_shiny = true})
 '''
 match_indent = true
 
@@ -416,8 +417,8 @@ pattern = '''
 position = "at"
 payload = '''
     G.SPLASH_LOGO = Sprite(0, 0, 
-        18*SC_scale, 
-        18*SC_scale*(G.ASSET_ATLAS["poke_Pokermon"].py/G.ASSET_ATLAS["poke_Pokermon"].px),
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["poke_Pokermon"].py/G.ASSET_ATLAS["poke_Pokermon"].px),
         G.ASSET_ATLAS["poke_Pokermon"], {x=0,y=0})
 '''
 match_indent = true
