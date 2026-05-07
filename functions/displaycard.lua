@@ -55,6 +55,7 @@ function PokeDisplayCard:init(args, x, y, w, h)
     atlas = args.atlas,
     pos = args.pos,
     soul_pos = args.soul_pos,
+    discovered = true,
   }
 
   self.display_text = args.display_text
