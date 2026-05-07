@@ -837,7 +837,7 @@ G.FUNCS.pokemon_toggle_sprite = function(card)
     if atlas_prefix then
       if not card.config.center.animated then
         local stub = string.sub(atlas, atlas_find + 1)
-        if G.ASSET_ATLAS['poke_'..atlas_prefix..stub] then
+        if SMODS.get_atlas('poke_'..atlas_prefix..stub) then
           card.config.center.atlas = 'poke_'..atlas_prefix..stub
         else
           card.config.center.atlas = 'poke_'..atlas_prefix..'Natdex'
