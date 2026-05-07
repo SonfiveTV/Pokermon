@@ -410,10 +410,10 @@ G.FUNCS.toggle_pokermon_skins = function()
     if table.contains(vanilla_stakes, k) then
       if pokermon_config.stake_skins then
         SMODS.Stake:take_ownership(k, { atlas = "poke_pokestakes" }, true)
-        G.shared_stickers[string.sub(k, 7, -1)].atlas = G.ASSET_ATLAS["poke_pokestakes_stickers"]
+        G.shared_stickers[string.sub(k, 7, -1)].atlas = SMODS.get_atlas("poke_pokestakes_stickers")
       else
         SMODS.Stake:take_ownership(k, { atlas = "chips", prefix_config = { key = { mod = false } } }, true)
-        G.shared_stickers[string.sub(k, 7, -1)].atlas = G.ASSET_ATLAS["stickers"]
+        G.shared_stickers[string.sub(k, 7, -1)].atlas = SMODS.get_atlas("stickers")
       end
     end
   end
