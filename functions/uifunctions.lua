@@ -112,12 +112,12 @@ poke_blueprint_compat_ui = function(copy)
 end
 
 -- Collection Grid UI helper functions
-function poke_create_your_collection_card(key, x, y)
+function poke_create_your_collection_card(key, x, y, params)
   local form = type(key == 'table') and key.form
   local center_key = type(key == 'table') and key.key or key
   local center = G.P_CENTERS[center_key]
 
-  local card = Card(x, y, G.CARD_W, G.CARD_H, nil, center)
+  local card = Card(x, y, G.CARD_W, G.CARD_H, nil, center, params)
 
   if form and center.set_sprites then
     card.ability.extra.form = form
