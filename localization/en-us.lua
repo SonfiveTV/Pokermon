@@ -516,13 +516,6 @@ return {
                     "and earn {C:money}$#1#{}",
                 },
             },
-            c_poke_berry_juice_mega = {
-                name = "Mega Berry Juice",
-                text = {
-                    "{C:attention}Mega Evolves{} leftmost",
-                    "or selected Joker",
-                },
-            },
             c_poke_berry_juice_mystery = {
                 name = "Mystery Berry Juice",
                 text = {
@@ -5550,6 +5543,26 @@ return {
                     "{br:2}ERROR - CONTACT STEAK",
                     "{C:chips}+#2#{} Chips if played hand",
                     "contains a scoring {C:attention}5{}, {C:attention}6{}, or {C:attention}7{}",
+                } 
+            },
+            j_poke_cetoddle = {
+                name = 'Cetoddle',
+                text = {
+                    "Gains {X:red,C:white}X#1#{} Mult for every",
+                    "{C:attention}Glass Card{} that is destroyed",
+                    "{C:inactive}(Currently {}{X:red,C:white}X#2#{}{C:inactive} Mult){}",
+                    "{C:inactive,s:0.8}(Evolves with an {C:attention,s:0.8}Ice Stone{C:inactive,s:0.8})"
+                } 
+            },
+            j_poke_cetitan = {
+                name = 'Cetitan',
+                text = {
+                    "Gains {X:red,C:white}X#1#{} Mult for every",
+                    "{C:attention}Glass Card{} that is destroyed",
+                    "{br:4}text needs to be here to work",
+                    "Scores double if every card",
+                    "held in hand is {C:attention}Glass{}",
+                    "{C:inactive}(Currently {}{X:red,C:white}X#2#{}{C:inactive} Mult){}",
                 } 
             },
             j_poke_annihilape = {
