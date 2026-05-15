@@ -741,20 +741,25 @@ end
 
 poke_ease_hands_played = function(mod, instant)
   if mod >= 0 then
-    return ease_hands_played(mod, instant)
+    ease_hands_played(mod, instant)
   else
     local to_decrease = math.min(G.GAME.current_round.hands_left + (G.poke_hands_buffer or 0) - 1, -mod)
     if to_decrease > 0 then
-      if not instant then
-        G.poke_hands_buffer = (G.poke_hands_buffer or 0) - to_decrease
-        G.E_MANAGER:add_event(Event({
-          func = function()
-            G.poke_hands_buffer = 0
-            return true
-          end
-        }))
-      end
       ease_hands_played(-to_decrease, instant)
     end
   end
+end
+
+local ease_hands_played_ref = ease_hands_played
+ease_hands_played = function(mod, instant, ...)
+  if not instant then
+    G.poke_hands_buffer = (G.poke_hands_buffer or 0) + mod
+    G.E_MANAGER:add_event(Event({
+      func = function()
+        G.poke_hands_buffer = 0
+        return true
+      end
+    }))
+  end
+  return ease_hands_played_ref(mod, instant, ...)
 end
