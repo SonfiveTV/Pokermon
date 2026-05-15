@@ -642,5 +642,5 @@ local wiglett={
   attributes = {"mult", "chips", "hand_type", "rank", "five", "six", "seven", "round_evo"},
 }
 return {name = "Pokemon Jokers 931-960", 
-        list = {charcadet, armarouge, ceruledge, bramblin, brambleghast, tinkatink, tinkatuff, tinkaton, wiglett},
+        list = {nacli, naclstack, garganacl, charcadet, armarouge, ceruledge, bramblin, brambleghast, tinkatink, tinkatuff, tinkaton, wiglett},
 }
