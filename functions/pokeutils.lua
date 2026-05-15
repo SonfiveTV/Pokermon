@@ -723,19 +723,18 @@ poke_convert_to_set = function(element_or_list)
   end
 end
 
-poke_drain_chips = function(card, amount)
-  if amount < 0 then return 0 end
-
-  local nominal_chips = card.base.nominal - (card.ability.nominal_drain or 0)
-  local bonus_chips = card.ability.bonus + (card.ability.perma_bonus or 0)
-
-  local base_drain = math.min(nominal_chips - 1, amount)
-
-  card.ability.nominal_drain = (card.ability.nominal_drain or 0) + base_drain
-
-  local bonus_drain = math.min(bonus_chips, amount - base_drain)
-
-  card.ability.perma_bonus = (card.ability.perma_bonus or 0) - bonus_drain
-
-  return base_drain + bonus_drain
+poke_get_consumeables = function(set)
+  local consumeables = {}
+  if G.STAGE ~= G.STAGES.RUN then return consumeables end
+  local count = 0
+  local areas = {G.jokers.cards, G.consumeables.cards}
+  for i = 1, #areas do
+    local area = areas[i]
+    for j = 1, #area do
+      if area[j].ability.consumeable and not (set and area[j].ability.set ~= set) then
+        consumeables[#consumeables + 1] = area[j]
+      end
+    end
+  end
+  return consumeables
 end
