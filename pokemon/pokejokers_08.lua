@@ -1482,7 +1482,7 @@ local tyrogue={
 
     if G.GAME.current_round.hands_played == 0 and G.GAME.current_round.discards_used == 0 and not context.blueprint then
       if context.before and #context.full_hand == 5 then
-        local target = pseudorandom_element(context.full_hand, pseudoseed('tyrogue'))
+        local target = pseudorandom_element(context.full_hand, 'tyrogue')
         G.playing_card = (G.playing_card and G.playing_card + 1) or 1
         local copy = copy_card(target, nil, nil, G.playing_card)
         copy:add_to_deck()
