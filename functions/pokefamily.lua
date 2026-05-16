@@ -181,6 +181,7 @@ local default_family_list = {
   { "yamper", "boltund" },
   { "tarountula", "spidops" },
   { "fidough", "dachsbun" },
+  { "nacli", "naclstack", "garganacl" },
   { "charcadet", "armarouge", "ceruledge" },
   { "bramblin", "brambleghast" },
   { "tinkatink", "tinkatuff", "tinkaton" },
